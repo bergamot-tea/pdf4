@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+
+{% comment %}
+у этой страницы три состояния:
+1) загрузка файлов (в теге if not insert_position)
+2) выбор страницы после которой будет вставлен второй документ (в теге if insert_position and not resulturl)
+3) Загрузка результата (в теге if resulturl)
+{% endcomment %}
+
+
+
+<div class="container mx-auto text-center">
+
+
+
+{% if not insert_position %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-6">Выберите PDF-файлы, которые хотите объединить</h1>
+  <p class="lead">Первым выберите файл, в который хотите вставить второй файл</p>
+</div>
+
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="custom-file">
+  <input type="file" class="custom-file-input" name="file1" id="FileLang1" >
+  <label class="custom-file-label" for="FileLang1" data-browse="Обзор">Выберите первый файл</label>
+</div>
+<p></p>
+<div class="custom-file">
+  <input type="file" class="custom-file-input" name="file2" id="FileLang2" >
+  <label class="custom-file-label" for="FileLang2" data-browse="Обзор">Выберите второй файл (вставляемый)</label>
+</div>
+<p></p>
+
+<button type="submit" class="btn btn-info" name="button_111">Далее</button>
+
+</form>
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+{% if insert_position and not resulturl %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-6">Выберите страницу первого файла, после которой начнутся страницы второго файла</h1>
+ </div>
+
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="form-group">
+    <input type="number" class="form-control" name="select_position" id="exampleFormControlSelect1" >
+    <label for="exampleFormControlSelect1">Выбирите номер страницы</label>
+  </div>
+<p></p>
+<button type="submit" class="btn btn-info"  name="button_222">Далее</button>
+
+</form>
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+{% if resulturl %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-6">Файл успешно вставлен!</h1>
+<!-- request.path <p class="lead">Скачайте результат, за тем выберете дальнейшее действие</p> -->
+</div>
+
+
+<br>
+<a href="{{ resulturl }}" class="btn btn-warning btn-lg" role="button" download><i class="fas fa-download"></i>  Скачать результат</a>
+<br>
+<br>
+<a href="{{ request.path }}" class="btn btn-primary btn-sm" role="button"><i class="fas fa-redo"></i>  Вставить еще</a>
+
+<a href="http://pdf4.pythonanywhere.com/" class="btn btn-secondary btn-sm" role="button"><i class="fas fa-home"></i>  На главную страницу</a>
+<br>
+
+{% endif %}
+
+
+
+
+
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script>
+      bsCustomFileInput.init()
+
+      var btn = document.getElementById('btnResetForm')
+      var form = document.querySelector('form')
+      btn.addEventListener('click', function () {
+        form.reset()
+      })
+    </script>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
