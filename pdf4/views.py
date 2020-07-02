@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import MergeForm
-from .pdf4 import mergefunction, insertfunction, getnumpagesfunction
+from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function
 from django.core.files.storage import FileSystemStorage
 
 def home_view(request):
@@ -62,5 +62,19 @@ def insert_view(request):
                 })
     else:
         return render(request, 'insert.html')
+
+
+def split_1_view(request):
+    if request.method == 'POST' and request.FILES['file1']:
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        file1 = request.FILES['file1']
+        file1name = fs.save(file1.name, file1)  #сохраняем файл из формы
+        resulturl = split1function('./pdf4/media/'+ file1name)   #вызываем функцию для разделения файла на отдельные страницы из pdf4.py, на выходе из которой получаем url для скачивания архива со страницами
+        fs.delete(file1name)    #удаляем исходный файлы
+        return render(request, 'split-1.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'split-1.html')
+
 
 

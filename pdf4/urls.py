@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from . views import home_view, merge_view, insert_view
+from . views import home_view, merge_view, insert_view, split_1_view
 
 
 from django.conf import settings
@@ -27,4 +27,5 @@ urlpatterns = [
     path('', home_view, name='home_page'),
     path('merge/', merge_view, name='merge_page'),
     path('insert/', insert_view, name='insert_page'),
+    path('split-1/', split_1_view, name='split_1_page'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
