@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import MergeForm
-from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function
+from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function, inimagesfunction, outimagesfunction
 from django.core.files.storage import FileSystemStorage
 
 def home_view(request):
@@ -77,4 +77,54 @@ def split_1_view(request):
     return render(request, 'split-1.html')
 
 
+def in_images_view(request):
+    if request.method == 'POST' and request.FILES['file1']:
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        file1 = request.FILES['file1']  #передаем данные из формы в переменные
+        format = request.POST['format1']
+        file1name = fs.save(file1.name, file1)  #сохраняем файл из переменной
+        resulturl = inimagesfunction('./pdf4/media/'+ file1name, format)   #вызываем функцию для преобразования файла в картинки из pdf4.py, на выходе из которой получаем url для скачивания архива со страницами
+        fs.delete(file1name)    #удаляем исходный файлы
+        return render(request, 'in-images.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'in-images.html')
+
+def out_images_view(request):
+    if request.method == 'POST':
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        filename = dict.fromkeys([1,2,3,4,5]) #создем словарь для имен файлов, ключи словаря 1,2,3,4,5 а значения у ключей None
+        if 'file1' in request.FILES:    #если вместо этого написать if request.FILES['file1']: то будет появляться ошибка в случае если поле пустое (если пользователь не выбрал файл)
+            file1 = request.FILES['file1']
+            filename[1] = fs.save(file1.name, file1)  #сохраняем файлы из формы, имена файлов записываем в словарь
+        if 'file2' in request.FILES:
+            file2 = request.FILES['file2']
+            filename[2] = fs.save(file2.name, file2)  #сохраняем файлы из формы, имена файлов записываем в словарь
+        if 'file3' in request.FILES:
+            file3 = request.FILES['file3']
+            filename[3] = fs.save(file3.name, file3)  #сохраняем файлы из формы, имена файлов записываем в словарь
+        if 'file4' in request.FILES:
+            file4 = request.FILES['file4']
+            filename[4] = fs.save(file4.name, file4)  #сохраняем файлы из формы, имена файлов записываем в словарь
+        if 'file5' in request.FILES:
+            file5 = request.FILES['file5']
+            filename[5] = fs.save(file5.name, file5)  #сохраняем файлы из формы, имена файлов записываем в словарь
+
+        resulturl = outimagesfunction(filename[1], filename[2], filename[3], filename[4], filename[5])   #вызываем функцию для сбора PDF-файла из картинок, на выходе из которой получаем url результата
+                                                           #В отличии от предыдущих функций, тут мы передаем значения словаря без добавления './pdf4/media/'
+        if filename[1] != None:
+            fs.delete(filename[1])    #удаляем исходный файлы
+        if filename[2] != None:
+            fs.delete(filename[2])
+        if filename[3] != None:
+            fs.delete(filename[3])
+        if filename[4] != None:
+            fs.delete(filename[4])
+        if filename[5] != None:
+            fs.delete(filename[5])
+
+        return render(request, 'out-images.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'out-images.html')
 
