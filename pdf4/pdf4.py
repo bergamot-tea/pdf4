@@ -2,6 +2,7 @@ import PyPDF2
 import random
 import zipfile
 import img2pdf
+import os
 from pdf2image import convert_from_path
 from django.core.files.storage import FileSystemStorage
 from pdfrw import PdfReader, PdfWriter
@@ -134,8 +135,69 @@ def outimagesfunction(f1,f2,f3,f4,f5):   #тут filenames это список �
     url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
     return url
 
+#функция сжимает pdf-файл f1 со степенью сжатия level
+def compressfunction(f1, level):
+
+    psw = '' # предварительно создаем переменную psw
+    for x in range(12):
+        psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
+#    cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./media/222.pdf ./media/333.pdf'
+    cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/' + level + ' -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./pdf4/media/pdfresult/' + psw + '.pdf ' + f1
+    os.system(cmd)
+    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    return url
+
+
+
+#функция берет файл f1, поворачивает страницы из pages1 на градус grad1, записывает все это дело в новый файл и возвращает ссылку на новый файл. При этом pages1 - строка введенная пользователем.
+def rotatefunction(f1, grad1, pages1):
+
+    reader = PyPDF2.PdfFileReader(f1)
+    writer = PyPDF2.PdfFileWriter()
+    numpages = reader.getNumPages()    #количество страниц файла (нужно для цикла)
+
+    pages = pages1.split(',')
+
+    digits = [] #список для интовых значений страниц
+
+    ### в этом цикле разбираем пользовательский ввод на список страниц
+    for i in pages:     # тут i строки состоящие из цифр например '5' или из диапазонов например '3-8'
+        if i.isnumeric() == True:
+            digits.append(int(i))   #добавляем в список digits элемент i
+        else:
+            r = i.split('-')    #вытаскиваем из диапазонов '3-8' начало и конец диапазона и помещаем в список r
+            for a in range(int(r[0]),int(r[1])+1):  #проходимся по диапазону и помещаем в список digits все числа из диапазона
+                digits.append(a)
+
+    ### если номер страницы входит в digits то добавляем повернутую страницу на grad1 градусов в объект writer, если нет то добавляем не повернутую
+    for n in range(numpages):
+        if n + 1 in digits:
+            p1 = reader.getPage(n).rotateClockwise(int(grad1))
+            writer.addPage(p1)
+        else:
+            p1 = reader.getPage(n)
+            writer.addPage(p1)
+
+
+    psw = '' # предварительно создаем переменную psw
+    for x in range(12):
+        psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
+    name = './pdf4/media/pdfresult/' + psw + '.pdf'
+    file1 = open(name, 'wb')
+    writer.write(file1)     #записываем все страницы из объекта writer в файл name
+
+    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    return url
 
 
 
 
 
+def inpdffunction(f1):
+
+    psw = '' # предварительно создаем переменную psw
+    for x in range(12):
+        psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
+
+    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.zip'
+    return url

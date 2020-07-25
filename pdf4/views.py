@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import MergeForm
-from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function, inimagesfunction, outimagesfunction
+from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function, inimagesfunction, outimagesfunction, compressfunction, rotatefunction, inpdffunction
 from django.core.files.storage import FileSystemStorage
 
 def home_view(request):
@@ -127,4 +127,47 @@ def out_images_view(request):
             'resulturl': resulturl
         })
     return render(request, 'out-images.html')
+
+
+
+def compress_view(request):
+    if request.method == 'POST' and request.FILES['file1']:
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        file1 = request.FILES['file1']  #передаем данные из формы в переменные
+        level = request.POST['level1']
+        file1name = fs.save(file1.name, file1)  #сохраняем файл из переменной
+        resulturl = compressfunction('./pdf4/media/'+ file1name, level)   #вызываем функцию для сжатия файла из pdf4.py, на выходе из которой получаем url для скачивания результата
+        fs.delete(file1name)    #удаляем исходный файлы
+        return render(request, 'compress.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'compress.html')
+
+
+
+def rotate_view(request):
+    if request.method == 'POST' and request.FILES['file1']:
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        file1 = request.FILES['file1']  #передаем данные из формы в переменные
+        grad1 = request.POST['grad1']
+        pages1 = request.POST['pages1']
+        file1name = fs.save(file1.name, file1)  #сохраняем файл из переменной
+        resulturl = rotatefunction('./pdf4/media/'+ file1name, grad1, pages1)   #вызываем функцию файла из pdf4.py, которая в файле file1name поворачивает страницы pages1 на градус из grad1, на выходе из которой получаем url для скачивания результата
+        fs.delete(file1name)    #удаляем исходный файл
+        return render(request, 'rotate.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'rotate.html')
+
+def in_pdf_view(request):
+    if request.method == 'POST' and request.FILES['file1']:
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        file1 = request.FILES['file1']  #передаем данные из формы в переменные
+        file1name = fs.save(file1.name, file1)  #сохраняем файл из переменной
+        resulturl = inpdffunction('./pdf4/media/'+ file1name)   #вызываем функцию для преобразования файла в PDF
+        fs.delete(file1name)    #удаляем исходный файлы
+        return render(request, 'in-pdf.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'in-pdf.html')
 
