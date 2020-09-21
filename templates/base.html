@@ -21,6 +21,8 @@
   <link href="{% static "vendor/simple-line-icons/css/simple-line-icons.css"%}" rel="stylesheet">
   <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
 
+ <link href="{% static "css/animation.css"%}" rel="stylesheet" type="text/css">
+
 
     <style>
       .bd-placeholder-img {
@@ -40,6 +42,8 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="{% static "css/bootstrap.min.css"%}" rel="stylesheet">
+
+
   </head>
 
 
@@ -51,28 +55,78 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
          <!-- Brand -->
 
-         <a class="navbar-brand" href="/"> <img src="{% static "img/logo_small.png"%}"></a>
+
+         <a class="navbar-brand" href="/">
+
+
+
+<svg width="166" height="37" viewBox="0 0 166 37" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+
+
+<!--анимация через css
+  <style type="text/css">
+    <![CDATA[
+    .QiocfAiP_0:hover { fill: #000000; }
+    .QiocfAiP_1:hover { fill: #000000; }
+    .QiocfAiP_3:hover { fill: #000000; }
+    ]]>
+  </style>
+-->
+
+<g id="logo">
+<rect id="Rectangle 14" width="166" height="37" fill="white" fill-opacity="0"/>
+<path id="Rectangle 4" d="M86 35.5H160C161.933 35.5 163.5 33.933 163.5 32V5C163.5 3.067 161.933 1.5 160 1.5H100.234H86C84.067 1.5 82.5 3.06701 82.5 5V17.9559V32C82.5 33.933 84.067 35.5 86 35.5Z" stroke="#FFF0BB" stroke-width="3" class="QiocfAiP_0"></path>
+<path id="PDF" d="M5.09125 30C4.65125 30 4.28125 29.85 3.98125 29.55C3.68125 29.25 3.53125 28.88 3.53125 28.44V8.13C3.53125 7.67 3.68125 7.3 3.98125 7.02C4.28125 6.72 4.65125 6.57 5.09125 6.57H11.0913C12.5913 6.57 13.9213 6.9 15.0813 7.56C16.2413 8.22 17.1413 9.14 17.7813 10.32C18.4413 11.48 18.7713 12.82 18.7713 14.34C18.7713 15.8 18.4413 17.1 17.7813 18.24C17.1413 19.38 16.2413 20.27 15.0813 20.91C13.9213 21.55 12.5913 21.87 11.0913 21.87H6.65125V28.44C6.65125 28.88 6.50125 29.25 6.20125 29.55C5.92125 29.85 5.55125 30 5.09125 30ZM6.65125 18.99H11.0913C12.4513 18.99 13.5713 18.56 14.4513 17.7C15.3313 16.82 15.7713 15.7 15.7713 14.34C15.7713 13.38 15.5713 12.54 15.1713 11.82C14.7713 11.08 14.2213 10.5 13.5213 10.08C12.8213 9.66 12.0113 9.45 11.0913 9.45H6.65125V18.99ZM23.7827 30C23.3427 30 22.9727 29.85 22.6727 29.55C22.3727 29.25 22.2227 28.88 22.2227 28.44V8.13C22.2227 7.67 22.3727 7.3 22.6727 7.02C22.9727 6.72 23.3427 6.57 23.7827 6.57H29.2127C30.9327 6.57 32.4927 6.86 33.8927 7.44C35.3127 8 36.5427 8.81 37.5827 9.87C38.6227 10.91 39.4227 12.14 39.9827 13.56C40.5427 14.98 40.8227 16.55 40.8227 18.27C40.8227 19.99 40.5427 21.57 39.9827 23.01C39.4227 24.43 38.6227 25.67 37.5827 26.73C36.5427 27.77 35.3127 28.58 33.8927 29.16C32.4927 29.72 30.9327 30 29.2127 30H23.7827ZM25.3427 27.24H29.2127C30.8927 27.24 32.3727 26.86 33.6527 26.1C34.9527 25.32 35.9727 24.26 36.7127 22.92C37.4527 21.56 37.8227 20.01 37.8227 18.27C37.8227 16.51 37.4527 14.96 36.7127 13.62C35.9727 12.28 34.9527 11.23 33.6527 10.47C32.3727 9.71 30.8927 9.33 29.2127 9.33H25.3427V27.24ZM45.3888 30C44.9488 30 44.5788 29.85 44.2788 29.55C43.9788 29.25 43.8288 28.88 43.8288 28.44V8.13C43.8288 7.67 43.9788 7.3 44.2788 7.02C44.5788 6.72 44.9488 6.57 45.3888 6.57H58.9488C59.4088 6.57 59.7788 6.71 60.0588 6.99C60.3388 7.25 60.4788 7.6 60.4788 8.04C60.4788 8.46 60.3388 8.8 60.0588 9.06C59.7788 9.32 59.4088 9.45 58.9488 9.45H46.9488V16.74H55.5588C56.0188 16.74 56.3888 16.88 56.6688 17.16C56.9488 17.42 57.0888 17.76 57.0888 18.18C57.0888 18.6 56.9488 18.95 56.6688 19.23C56.3888 19.49 56.0188 19.62 55.5588 19.62H46.9488V28.44C46.9488 28.88 46.7988 29.25 46.4988 29.55C46.1988 29.85 45.8288 30 45.3888 30Z" fill="#5A5A5A" class="QiocfAiP_1"></path>
+<path id="4" d="M73.2602 30C72.8602 30 72.5202 29.85 72.2402 29.55C71.9602 29.25 71.8202 28.89 71.8202 28.47V24.69H61.8302C61.3702 24.69 61.0102 24.55 60.7502 24.27C60.4902 23.99 60.3402 23.67 60.3002 23.31C60.2802 22.93 60.3802 22.59 60.6002 22.29L72.0902 7.23C72.2502 7.03 72.4302 6.87 72.6302 6.75C72.8502 6.63 73.0902 6.57 73.3502 6.57C73.7702 6.57 74.1102 6.72 74.3702 7.02C74.6302 7.32 74.7602 7.69 74.7602 8.13V21.93H76.5602C76.9802 21.93 77.3402 22.03 77.6402 22.23C77.9402 22.43 78.0902 22.79 78.0902 23.31C78.0902 23.69 77.9402 24.02 77.6402 24.3C77.3402 24.56 76.9802 24.69 76.5602 24.69H74.7602V28.47C74.7602 28.89 74.6202 29.25 74.3402 29.55C74.0602 29.85 73.7002 30 73.2602 30ZM71.8202 21.93V12L64.2602 21.93H71.8202Z" fill="#78C2AD" class="QiocfAiP_2"></path>
+<path id="YOU" d="M97.2339 30C96.8139 30 96.4539 29.85 96.1539 29.55C95.8539 29.25 95.7039 28.88 95.7039 28.44V21.45L87.6939 9C87.4339 8.58 87.3339 8.19 87.3939 7.83C87.4539 7.45 87.6239 7.15 87.9039 6.93C88.2039 6.69 88.5439 6.57 88.9239 6.57C89.2639 6.57 89.5339 6.65 89.7339 6.81C89.9339 6.95 90.1239 7.16 90.3039 7.44L97.3239 18.57L104.464 7.32C104.784 6.82 105.244 6.57 105.844 6.57C106.204 6.57 106.504 6.7 106.744 6.96C106.984 7.2 107.124 7.51 107.164 7.89C107.204 8.25 107.104 8.62 106.864 9L98.7939 21.45V28.44C98.7939 28.88 98.6439 29.25 98.3439 29.55C98.0439 29.85 97.6739 30 97.2339 30ZM119.647 30.3C117.887 30.3 116.277 30.01 114.817 29.43C113.357 28.83 112.097 28 111.037 26.94C109.997 25.86 109.187 24.59 108.607 23.13C108.027 21.65 107.737 20.03 107.737 18.27C107.737 16.51 108.027 14.9 108.607 13.44C109.187 11.98 109.997 10.72 111.037 9.66C112.097 8.58 113.357 7.75 114.817 7.17C116.277 6.57 117.887 6.27 119.647 6.27C121.407 6.27 123.007 6.57 124.447 7.17C125.907 7.75 127.167 8.58 128.227 9.66C129.287 10.72 130.107 11.98 130.687 13.44C131.267 14.9 131.557 16.51 131.557 18.27C131.557 20.03 131.267 21.65 130.687 23.13C130.107 24.59 129.287 25.86 128.227 26.94C127.167 28 125.907 28.83 124.447 29.43C123.007 30.01 121.407 30.3 119.647 30.3ZM119.647 27.48C121.387 27.48 122.927 27.08 124.267 26.28C125.607 25.46 126.657 24.36 127.417 22.98C128.177 21.58 128.557 20.01 128.557 18.27C128.557 16.53 128.177 14.97 127.417 13.59C126.657 12.19 125.607 11.09 124.267 10.29C122.927 9.49 121.387 9.09 119.647 9.09C117.907 9.09 116.367 9.49 115.027 10.29C113.687 11.09 112.637 12.19 111.877 13.59C111.117 14.97 110.737 16.53 110.737 18.27C110.737 20.01 111.117 21.58 111.877 22.98C112.637 24.36 113.687 25.46 115.027 26.28C116.367 27.08 117.907 27.48 119.647 27.48ZM146.254 30.48C144.334 30.48 142.634 30.13 141.154 29.43C139.674 28.71 138.514 27.72 137.674 26.46C136.854 25.2 136.444 23.76 136.444 22.14V8.13C136.444 7.67 136.594 7.3 136.894 7.02C137.194 6.72 137.564 6.57 138.004 6.57C138.464 6.57 138.834 6.72 139.114 7.02C139.414 7.3 139.564 7.67 139.564 8.13V22.14C139.564 23.22 139.844 24.18 140.404 25.02C140.984 25.84 141.774 26.49 142.774 26.97C143.794 27.43 144.954 27.66 146.254 27.66C147.514 27.66 148.624 27.43 149.584 26.97C150.564 26.49 151.324 25.84 151.864 25.02C152.424 24.18 152.704 23.22 152.704 22.14V8.13C152.704 7.67 152.854 7.3 153.154 7.02C153.454 6.72 153.824 6.57 154.264 6.57C154.724 6.57 155.094 6.72 155.374 7.02C155.654 7.3 155.794 7.67 155.794 8.13V22.14C155.794 23.76 155.384 25.2 154.564 26.46C153.764 27.72 152.644 28.71 151.204 29.43C149.764 30.13 148.114 30.48 146.254 30.48Z" fill="#5A5A5A" class="QiocfAiP_3"></path>
+</g>
+
+<style data-made-with="vivus-instant">.QiocfAiP_0{stroke-dasharray:224 226;stroke-dashoffset:225;animation:QiocfAiP_draw 2000ms linear 0ms forwards;}.QiocfAiP_1{stroke-dasharray:326 328;stroke-dashoffset:327;animation:QiocfAiP_draw 2000ms linear 333ms forwards;}.QiocfAiP_2{stroke-dasharray:101 103;stroke-dashoffset:102;animation:QiocfAiP_draw 2000ms linear 666ms forwards;}.QiocfAiP_3{stroke-dasharray:333 335;stroke-dashoffset:334;animation:QiocfAiP_draw 2000ms linear 1000ms forwards;}@keyframes QiocfAiP_draw{100%{stroke-dashoffset:0;}}@keyframes QiocfAiP_fade{0%{stroke-opacity:1;}94.44444444444444%{stroke-opacity:1;}100%{stroke-opacity:0;}}</style>
+
+<!-- анимация в самом svg (вставлять внутрь тега path)
+<animate fill="freeze" dur="0.1s" to="#5A5A5A" from="#000000" attributeName="fill" begin="mouseover"/>
+<animate fill="freeze" dur="0.1s" to="#000000" from="#5A5A5A" attributeName="fill" begin="mouseout"/>
+<animate dur="10s" values="#5A5A5A; #FFF0BB; #5A5A5A" keyTimes="0; 0.5; 1" attributeName="fill" repeatCount="indefinite"/>
+-->
+</svg>
+
+
+</a>
+
+
+
+
+
+
 
          <!-- Toggler/collapsibe Button -->
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
          </button>
 
+
+
+
+
          <!-- Navbar links -->
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><b>Распознать PDF</b></a>
+            </li>
+
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="Menu_1">Конвертация</a>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="Menu_1"><b>Конвертация</b></a>
               <div class="dropdown-menu" aria-labelledby="Menu_1">
-                <a class="dropdown-item" href="#">из PDF в Word, Excel, PowerPoint</a>
-                <a class="dropdown-item" href="/in-images">из PDF в изображения (JPEG, PNG, PPM, TIFF)</a>
-                <a class="dropdown-item" href="/in-pdf">из Word, Excel, PowerPoint в PDF</a>
+                <a class="dropdown-item" href="#">из PDF в текст (DOCX, DOC, TXT и т.п.)</a>
+                <a class="dropdown-item" href="/in-images">из PDF в изображения (JPEG, PNG)</a>
+                <a class="dropdown-item" href="/in-pdf">из текста (DOCX, DOC, TXT и т.п.) в PDF</a>
                 <a class="dropdown-item" href="/out-images">из изображений (JPEG, PNG, BMP) в PDF</a>
               </div>
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="Menu_3">Другие действия</a>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="Menu_3"><b>Другие действия</b></a>
               <div class="dropdown-menu" aria-labelledby="Menu_3">
                 <a class="dropdown-item" href="/compress">Уменьшить размер</a>
                 <a class="dropdown-item" href="/merge">Объединить</a>
@@ -85,14 +139,27 @@
 
           </ul>
 
+
         <ul class="navbar-nav ml-auto">
-            <form class="form-inline" action="#">
-               <input class="form-control mr-sm-2" type="text" placeholder="Поиск">
-            </form>
+
          </ul>
 
+        <ul class="navbar-nav ml-auto">
+        <li class="list-inline-item">
+          <a  href="#">
+           <i class="fab fa-vk"></i>
+            </a>
+
+        </li>
+         </ul>
+
+
          </div>
+
+
       </nav>
+
+
 
 
  <div class="table-responsive align-items-center p-3 px-md-4 mb-3 bg-white">
@@ -111,19 +178,9 @@
 
 <footer class="my-5 text-muted text-center text-small">
 
-     <li class="list-inline-item">
-          <a href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
         <li class="list-inline-item">
           <a  href="#">
            <i class="fab fa-vk"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">
-           <i class="fab fa-odnoklassniki"></i>
           </a>
         </li>
         <br>

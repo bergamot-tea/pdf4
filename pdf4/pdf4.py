@@ -199,5 +199,9 @@ def inpdffunction(f1):
     for x in range(12):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
 
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.zip'
+    cmd = 'abiword --to=pdf --to-name=./pdf4/media/pdfresult/' + psw + '.pdf ' + f1
+    os.system(cmd)
+
+
+    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
     return url

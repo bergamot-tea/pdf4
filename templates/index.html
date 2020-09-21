@@ -23,26 +23,174 @@
 
 
 <div class="container">
+<div class="row">
 
-<div class="row row-cols-3">
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i0.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i1.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i2.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i3.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i4.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i5.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i6.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i7.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i8.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i9.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i10.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i11.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i12.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i13.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i14.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i15.png"%}"></a></div>
-    <div class="col"> <a href="/"> <img src="{% static "img/icons/i16.png"%}"></a></div>
+
+<div class="col-sm-4">
+<a href="./compress">
+<div class="card mb-3 border-warning" style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="{% static "img/icons/compress.svg"%}" class="card-img">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Уменьшить размер файла</p>
+      </div>
+    </div>
+  </div>
 </div>
+</a>
+</div>
+
+
+<div class="col-sm-4">
+<a href="./merge">
+<div class="card mb-3 border-success " style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="{% static "img/icons/merge.png"%}" class="card-img">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Объединить файлы</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+<div class="col-sm-4">
+<a href="./insert">
+<div class="card mb-3 border-success " style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="{% static "img/icons/insert.png"%}" class="card-img">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Вставить один файл в другой</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+<div class="col-sm-4">
+<a href="./rotate">
+<div class="card mb-3 border-success" style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="{% static "img/icons/rotate.png"%}" class="card-img">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Повернуть страницы</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+<div class="col-sm-4">
+<a href="./split-1">
+<div class="card mb-3 border-success " style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="{% static "img/icons/split.png"%}" class="card-img">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Разделить файл на страницы</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+<div class="col-sm-4">
+<a href="./out-images">
+<div class="card mb-3 border-dark" style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img class="card-img" src="{% static "img/icons/out_image.png"%}"> </img>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Из изображений в PDF</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+
+<div class="col-sm-4">
+<a href="./in-images">
+<div class="card mb-3 border-dark " style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img class="card-img" src="{% static "img/icons/in_image.svg"%}"> </img>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Из PDF в изображения</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+
+<div class="col-sm-4">
+<a href="./in-pdf">
+<div class="card mb-3 border-info" style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img class="card-img" src="{% static "img/icons/out_office.png"%}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Из текстовых форматов в PDF</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+<div class="col-sm-4">
+<a href="./">
+<div class="card mb-3 border-info" style="max-width: 540px; border-width:2px" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="{% static "img/icons/in_office.svg"%}" class="card-img" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-muted">Из PDF в текст <b>распознать PDF</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+</div>
+
+
+</div>
+
 
 
 </div>

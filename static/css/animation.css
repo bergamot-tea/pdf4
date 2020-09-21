@@ -1,0 +1,13 @@
+#logo:hover .QiocfAiP_2 {
+    transform: translate(0,-5px);
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+
+}
+
+.card:hover .card {
+    border-width: 2px;
+
+}
