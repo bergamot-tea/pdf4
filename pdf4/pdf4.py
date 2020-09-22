@@ -198,10 +198,23 @@ def inpdffunction(f1):
     psw = '' # предварительно создаем переменную psw
     for x in range(12):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
-
     cmd = 'abiword --to=pdf --to-name=./pdf4/media/pdfresult/' + psw + '.pdf ' + f1
-    os.system(cmd)
-
-
+    os.system(cmd)  #тут вызываем консольную команду
     url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
     return url
+
+
+
+
+def intextfunction(f1, format):
+
+    psw = '' # предварительно создаем переменную psw
+    for x in range(12):
+        psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
+    cmd = 'abiword --to=' + format + ' --to-name=./pdf4/media/pdfresult/' + psw + '.' + format + ' ' + f1
+    os.system(cmd)  #тут вызываем консольную команду
+    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.' + format
+    return url
+
+
+

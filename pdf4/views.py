@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import MergeForm
-from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function, inimagesfunction, outimagesfunction, compressfunction, rotatefunction, inpdffunction
+from .pdf4 import mergefunction, insertfunction, getnumpagesfunction, split1function, inimagesfunction, outimagesfunction, compressfunction, rotatefunction, inpdffunction, intextfunction
 from django.core.files.storage import FileSystemStorage
 
 def home_view(request):
@@ -170,4 +170,17 @@ def in_pdf_view(request):
             'resulturl': resulturl
         })
     return render(request, 'in-pdf.html')
+
+def in_text_view(request):
+    if request.method == 'POST' and request.FILES['file1']:
+        fs = FileSystemStorage()        #создаем экземпляр джанго-класс для работы с файлами
+        file1 = request.FILES['file1']  #передаем данные из формы в переменные
+        format = request.POST['format1']
+        file1name = fs.save(file1.name, file1)  #сохраняем файл из переменной
+        resulturl = intextfunction('./pdf4/media/'+ file1name, format)   #вызываем функцию для преобразования файла в текстовый формат из pdf4.py, на выходе из которой получаем url для скачивания текстового файла
+        fs.delete(file1name)    #удаляем исходный файлы
+        return render(request, 'in-text.html', {
+            'resulturl': resulturl
+        })
+    return render(request, 'in-text.html')
 

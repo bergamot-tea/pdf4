@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from . views import home_view, merge_view, insert_view, split_1_view, in_images_view, out_images_view, compress_view, rotate_view, in_pdf_view
+from . views import home_view, merge_view, insert_view, split_1_view, in_images_view, out_images_view, compress_view, rotate_view, in_pdf_view, in_text_view
 
 
 from django.conf import settings
@@ -33,4 +33,5 @@ urlpatterns = [
     path('compress/', compress_view, name='compress_page'),
     path('rotate/', rotate_view, name='rotate_page'),
     path('in-pdf/', in_pdf_view, name='in_pdf_page'),
+    path('in-text/', in_text_view, name='in_text_page'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
