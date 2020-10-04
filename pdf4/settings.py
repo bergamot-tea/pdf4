@@ -138,3 +138,112 @@ MEDIA_ROOT = '/home/pdf4/pdf4/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/pdf4/pdf4/static'
 STATIC_URL = '/static/'
+
+
+# Настройки логирования:
+# %(name) – это имя пакета, которое выдает сообщение журнала (функция в которой ошибка)
+# %(levelname) – степень важности сообщения (ERROR, WARNING, INFO, и т.д.)
+# %(message) – само сообщение
+# %(asctime) - время
+# подробнее тут https://webdevblog.ru/loggirovanie-v-django-nachalnyj-obzor/
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug.log'
+
+        },
+        'file2': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug_request.log'
+
+        },
+        'file3': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug_server.log'
+
+        },
+        'file4': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug_template.log'
+
+        },
+        'file5': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug_db_backend.log'
+
+        },
+        'file6': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug_security.log'
+
+        },
+        'file7': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug_security_csrf.log'
+
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'file']
+        },
+        'django.request': {
+            'level': 'DEBUG',
+            'handlers': ['file2']
+        },
+        'django.server': {
+            'level': 'DEBUG',
+            'handlers': ['file3']
+        },
+        'django.template': {
+            'level': 'DEBUG',
+            'handlers': ['file4']
+        },
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['file5']
+        },
+        'django.security.*': {
+            'level': 'DEBUG',
+            'handlers': ['file6']
+        },
+        'django.security.csrf': {
+            'level': 'DEBUG',
+            'handlers': ['file7']
+        },
+
+    }
+}
+
