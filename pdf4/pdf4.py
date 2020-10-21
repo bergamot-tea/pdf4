@@ -11,7 +11,7 @@ from pdfrw import PdfReader, PdfWriter
 def mergefunction(f1,f2):
     file1 = open(f1,'rb')
     file2 = open(f2,'rb')
-    merger = PyPDF2.PdfFileMerger()
+    merger = PyPDF2.PdfFileMerger(strict = False) # strict = False исправляет ошибку "Expected object ID (8 0) does not match actual (7 0); xref table not zero-indexed."
     merger.append(fileobj=file1)
     merger.append(fileobj=file2)
     psw = '' # предварительно создаем переменную psw
@@ -28,7 +28,7 @@ def mergefunction(f1,f2):
 #функция возвращает количество страниц PDF-файла
 def getnumpagesfunction(f1):
     file1 = open(f1,'rb')
-    pdf1 = PyPDF2.PdfFileReader()
+    pdf1 = PyPDF2.PdfFileReader(file1,strict = False)
     numpages = pdf1.getNumPages()
     file1.close()
     pdf1.close()
@@ -39,7 +39,7 @@ def getnumpagesfunction(f1):
 def insertfunction(f1,f2,s):
     file1 = open(f1,'rb')
     file2 = open(f2,'rb')
-    merger = PyPDF2.PdfFileMerger()
+    merger = PyPDF2.PdfFileMerger(strict = False)
     merger.merge(position=0, fileobj=file1)
     merger.merge(position = s, fileobj=file2)
     psw = '' # предварительно создаем переменную psw
@@ -58,7 +58,7 @@ def split1function(f1):
     url = ''
     fs = FileSystemStorage(location='./pdf4/media/') #если не указать location то файлы в цикле почему то не удаляются
     file1 = open(f1,'rb')
-    reader1 = PyPDF2.PdfFileReader(file1)
+    reader1 = PyPDF2.PdfFileReader(file1, strict = False)   # strict = False исправляет ошибку "Expected object ID (8 0) does not match actual (7 0); xref table not zero-indexed."
     numpages = reader1.getNumPages()
     psw = '' # предварительно создаем переменную psw
     for x in range(12):
@@ -94,7 +94,7 @@ def inimagesfunction(f1, format):
     url = ''
     fs = FileSystemStorage(location='./pdf4/media/') #если не указать location то файлы в цикле почему то не удаляются
     file1 = open(f1,'rb')
-    reader1 = PyPDF2.PdfFileReader(file1)
+    reader1 = PyPDF2.PdfFileReader(file1, strict = False)
     numpages = reader1.getNumPages()    #в этой функции numpages нам нужна только для того чтоб мы могли циклом по файлам пройтись
     psw = '' # предварительно создаем переменную psw
     for x in range(12):
@@ -152,7 +152,7 @@ def compressfunction(f1, level):
 #функция берет файл f1, поворачивает страницы из pages1 на градус grad1, записывает все это дело в новый файл и возвращает ссылку на новый файл. При этом pages1 - строка введенная пользователем.
 def rotatefunction(f1, grad1, pages1):
 
-    reader = PyPDF2.PdfFileReader(f1)
+    reader = PyPDF2.PdfFileReader(f1, strict = False)
     writer = PyPDF2.PdfFileWriter()
     numpages = reader.getNumPages()    #количество страниц файла (нужно для цикла)
 

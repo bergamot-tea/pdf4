@@ -2,6 +2,7 @@
     transform: translate(0,-5px);
 }
 
+
 .card:hover .card-img {
     transform: scale(1.05);
 
@@ -11,3 +12,5 @@
     border-width: 2px;
 
 }
+
+
