@@ -6,7 +6,14 @@ from django.core.files.storage import FileSystemStorage
 
 def home_view(request):
 		return render(request, 'index.html')
-
+def faq_view(request):
+		return render(request, 'faq.html')
+def about_view(request):
+		return render(request, 'about.html')
+def rules_view(request):
+		return render(request, 'rules.html')
+def policy_view(request):
+		return render(request, 'policy.html')
 
 def merge_view(request):
     if request.method == 'POST' and request.FILES['file1'] and request.FILES['file2']:

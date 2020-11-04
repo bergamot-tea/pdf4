@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from . views import home_view, merge_view, insert_view, split_1_view, in_images_view, out_images_view, compress_view, rotate_view, in_pdf_view, in_text_view
+from . views import home_view, merge_view, insert_view, split_1_view, in_images_view, out_images_view, compress_view, rotate_view, in_pdf_view, in_text_view, faq_view, about_view, rules_view, policy_view
 
 
 from django.conf import settings
@@ -25,6 +25,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home_page'),
+    path('faq/', faq_view, name='faq_page'),
+    path('about/', about_view, name='about_page'),
+    path('rules/', rules_view, name='rules_page'),
+    path('policy/', policy_view, name='policy_page'),
     path('merge/', merge_view, name='merge_page'),
     path('insert/', insert_view, name='insert_page'),
     path('split-1/', split_1_view, name='split_1_page'),

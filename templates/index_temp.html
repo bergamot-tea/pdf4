@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+
+
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-6">Инструменты для работы с PDF</h1>
+  <p class="lead">Бесплатно, быстро, удобно. Объединяйте, разделяйте, сжимайте, конвертируйте в другие форматы.</p>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+<div class="row">
+
+
+<div class="col-sm-4">
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action">
+    <img width=30% src="{% static "img/icons/compress.svg"%}">
+Уменьшить размер файла
+</a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+    <img width=30% src="{% static "img/icons/merge.svg"%}" >
+    Объединить файлы
+      </a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">
+    <img width=30% src="{% static "img/icons/insert.svg"%}">
+    Вставить один файл в другой
+    </a>
+
+
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-success">
+    <img width=30% src="{% static "img/icons/rotate.svg"%}" >
+    Повернуть страницы</a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">
+    <img width=30% src="{% static "img/icons/splite.svg"%}" >
+    Разделить файл на страницы
+      </a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-warning">
+    <img width=30% src="{% static "img/icons/out_image.png"%}"> </img>
+    Из изображений в PDF
+</a>
+
+</div>
+</div>
+
+
+<div class="col-sm-4">
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-info">
+    <img width=30% src="{% static "img/icons/in_image.svg"%}"> </img>
+  <p class="lead"> Из PDF в изображения </p>
+</a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-light">
+    <div class="container">
+  <div class="row">
+    <div class="col-sm-4">   <img width=80 src="{% static "img/icons/out_text.png"%}"></div>
+ <div class="col-sm-8"> Из текстовых форматов в PDF</div>  </div>
+</div>
+</a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4">    <img width=80 src="{% static "img/icons/in_text.png"%}" ></div>
+    <div class="col-sm-8">    Из PDF в текст <b>распознать PDF</b></div>
+  </div>
+</div>
+</a>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
