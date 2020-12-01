@@ -19,7 +19,7 @@ def mergefunction(f1,f2):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
     url1 = './pdf4/media/pdfresult/' + psw + '.pdf'
     merger.write(open(url1,'wb'))
-    url2 = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    url2 = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
     file1.close()
     file2.close()
     merger.close()
@@ -47,7 +47,7 @@ def insertfunction(f1,f2,s):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
     url1 = './pdf4/media/pdfresult/' + psw + '.pdf'
     merger.write(open(url1,'wb'))
-    url2 = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    url2 = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
     file1.close()
     file2.close()
     merger.close()
@@ -76,7 +76,7 @@ def split1function(f1):
         fs.delete(str(i + 1) + '_' + psw + '.pdf')  #удаляем файл
     file1.close()
     zip1.close()
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.zip'
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.zip'
     return url
 
 #функция преобразует PDF-файл в архив с изображениям
@@ -102,11 +102,14 @@ def inimagesfunction(f1, format):
     zip1 = zipfile.ZipFile('./pdf4/media/pdfresult/' + psw + '.zip', 'w')   #создаем архив
     convert_from_path(f1, output_folder='./pdf4/media/', fmt=format, output_file=psw,)  #делаем из pdf картинки
     for i in range(numpages):
-        zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
+        if i<9:
+            zip1.write('./pdf4/media/' + psw + '0001-0' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
+        else:
+            zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #разница в том что меньше десяти файлы создаются 01 02... а далее 10 11 12
         fs.delete(psw + '0001-' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
     file1.close()
     zip1.close()
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.zip'
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.zip'
     return url
 
 #функция преобразует файлы изображений в один PDF-файл, вернее всначала преобразует их в отдельные pdf-файлы, затем объединяет их
@@ -132,7 +135,7 @@ def outimagesfunction(f1,f2,f3,f4,f5):   #тут filenames это список �
             writer.addpages(page)   #добавляем во writer страницу page
             fs.delete(str(i) + '_' + psw + '.pdf')  #удаляем временные pdf-файлы
     writer.write('./pdf4/media/pdfresult/' + psw + '.pdf')  #записываем writer в файл
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
     return url
 
 #функция сжимает pdf-файл f1 со степенью сжатия level
@@ -144,7 +147,7 @@ def compressfunction(f1, level):
 #    cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./media/222.pdf ./media/333.pdf'
     cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/' + level + ' -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./pdf4/media/pdfresult/' + psw + '.pdf ' + f1
     os.system(cmd)
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
     return url
 
 
@@ -186,7 +189,7 @@ def rotatefunction(f1, grad1, pages1):
     file1 = open(name, 'wb')
     writer.write(file1)     #записываем все страницы из объекта writer в файл name
 
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
     return url
 
 
@@ -200,7 +203,7 @@ def inpdffunction(f1):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
     cmd = 'abiword --to=pdf --to-name=./pdf4/media/pdfresult/' + psw + '.pdf ' + f1
     os.system(cmd)  #тут вызываем консольную команду
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.pdf'
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
     return url
 
 
@@ -213,7 +216,7 @@ def intextfunction(f1, format):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
     cmd = 'abiword --to=' + format + ' --to-name=./pdf4/media/pdfresult/' + psw + '.' + format + ' ' + f1
     os.system(cmd)  #тут вызываем консольную команду
-    url = 'http://pdf4.pythonanywhere.com/media/pdfresult/' + psw + '.' + format
+    url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.' + format
     return url
 
 

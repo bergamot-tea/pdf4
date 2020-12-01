@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from . views import home_view, merge_view, insert_view, split_1_view, in_images_view, out_images_view, compress_view, rotate_view, in_pdf_view, in_text_view, faq_view, about_view, rules_view, policy_view
-
+from django.views.generic.base import TemplateView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -38,4 +38,5 @@ urlpatterns = [
     path('rotate/', rotate_view, name='rotate_page'),
     path('in-pdf/', in_pdf_view, name='in_pdf_page'),
     path('in-text/', in_text_view, name='in_text_page'),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
