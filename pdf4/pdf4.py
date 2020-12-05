@@ -6,6 +6,7 @@ import os
 from pdf2image import convert_from_path
 from django.core.files.storage import FileSystemStorage
 from pdfrw import PdfReader, PdfWriter
+from PIL import Image
 
 #функция объединяет два PDF-файла и выдает ссылку на результирующий файл
 def mergefunction(f1,f2):
@@ -119,10 +120,10 @@ def outimagesfunction(f1,f2,f3,f4,f5):   #тут filenames это список �
     for x in range(12):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
     fs = FileSystemStorage(location='./pdf4/media/')    #это чтоб в конце цикла мы смогли временные файлы удалить
-    imgs = [f1,f2,f3,f4,f5] #словарь для прохода по циклу
+    imgs = [f1,f2,f3,f4,f5] #список для прохода по циклу
     i = 0 #счетчик для цикла, в цикле номер страницы результирующего файла
     writer = PdfWriter()    #создаем writer для работы с pdfrw, чтоб после цикла записать результат
-    for name in imgs:       #проходим по словарю imgs
+    for name in imgs:       #проходим по списку imgs
         if name != None:    #если элемент словаря не имеет значене None (если пользвотаель загрузил файл)
             i = i + 1       #номер страницы результирующего файла (1,2,3...)
             name = './pdf4/media/' + name   #необходимо так как мы из вьюшки передали имена без './pdf4/media/'
@@ -144,7 +145,7 @@ def compressfunction(f1, level):
     psw = '' # предварительно создаем переменную psw
     for x in range(12):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
-#    cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./media/222.pdf ./media/333.pdf'
+    #    cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./media/222.pdf ./media/333.pdf'
     cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/' + level + ' -dNOPAUSE -dQUIET -dBATCH -sOutputFile=./pdf4/media/pdfresult/' + psw + '.pdf ' + f1
     os.system(cmd)
     url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.pdf'
