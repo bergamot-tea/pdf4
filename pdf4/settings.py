@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from .secret import DB_NAME, DB_HOST, DB_USER, DB_PASSWORD, MY_SECRET
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xp%c*_v++8yu%035o0fdr6c9=3^)olk1le!p8o#!&3^li&8$ns'
+SECRET_KEY = MY_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'pdf4you.ru',
@@ -86,9 +87,9 @@ WSGI_APPLICATION = 'pdf4.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pdf4$pdf4_base',
-        'USER': 'pdf4',        	'PASSWORD': 'Pdf-4242',
-        'HOST': 'pdf4.mysql.pythonanywhere-services.com',
+        'NAME': DB_NAME,
+        'USER': DB_USER,        	'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
     }
 }
 

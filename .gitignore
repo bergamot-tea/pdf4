@@ -1,3 +1,4 @@
 /media
 *.log
 *.pdf
+/pdf4/secret.py
