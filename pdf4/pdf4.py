@@ -102,12 +102,48 @@ def inimagesfunction(f1, format):
         psw = psw + random.choice(list('123456789qwertyuiopasdfghjklzxcvbnm'))
     zip1 = zipfile.ZipFile('./pdf4/media/pdfresult/' + psw + '.zip', 'w')   #создаем архив
     convert_from_path(f1, output_folder='./pdf4/media/', fmt=format, output_file=psw,)  #делаем из pdf картинки
-    for i in range(numpages):
-        if i<9:
-            zip1.write('./pdf4/media/' + psw + '0001-0' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
-        else:
-            zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #разница в том что меньше десяти файлы создаются 01 02... а далее 10 11 12
-        fs.delete(psw + '0001-' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+
+
+    if numpages<10:
+        for i in range(numpages):
+            zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
+            fs.delete(psw + '0001-' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+    elif numpages<100:
+        for i in range(numpages):
+            if i<9:
+                zip1.write('./pdf4/media/' + psw + '0001-0' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
+                fs.delete(psw + '0001-0' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+            else:
+                zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat)
+                fs.delete(psw + '0001-' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+
+    elif numpages<1000:
+        for i in range(numpages):
+            if i<9:
+                zip1.write('./pdf4/media/' + psw + '0001-00' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
+                fs.delete(psw + '0001-00' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+            elif i<99:
+                zip1.write('./pdf4/media/' + psw + '0001-0' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat)
+                fs.delete(psw + '0001-0' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+            else:
+                zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat)
+                fs.delete(psw + '0001-' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+
+    else:
+        for i in range(numpages):
+            if i<9:
+                zip1.write('./pdf4/media/' + psw + '0001-000' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat) #записываем файл со страницей в архив, если не указать arcname то в архив попадет структура каталогов
+                fs.delete(psw + '0001-000' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+            elif i<99:
+                zip1.write('./pdf4/media/' + psw + '0001-00' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat)
+                fs.delete(psw + '0001-00' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+            elif i<999:
+                zip1.write('./pdf4/media/' + psw + '0001-0' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat)
+                fs.delete(psw + '0001-0' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+            else:
+                zip1.write('./pdf4/media/' + psw + '0001-' + str(i + 1) + dotformat, arcname = str(i + 1) + dotformat)
+                fs.delete(psw + '0001-' + str(i + 1) + dotformat) #удаляем незаархивированные картинки
+
     file1.close()
     zip1.close()
     url = 'https://pdf4you.ru/media/pdfresult/' + psw + '.zip'

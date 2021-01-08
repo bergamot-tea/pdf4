@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://pdf4you.ru/</loc>
+	<lastmod>2020-12-22T08:42:05+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/in-text/</loc>
+	<lastmod>2020-12-22T08:42:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/in-pdf/</loc>
+	<lastmod>2020-12-22T08:42:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/in-images/</loc>
+	<lastmod>2020-12-22T08:42:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/out-images/</loc>
+	<lastmod>2020-12-22T08:42:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/merge/</loc>
+	<lastmod>2020-12-22T08:42:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/insert/</loc>
+	<lastmod>2020-12-22T08:42:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/compress/</loc>
+	<lastmod>2020-12-22T08:42:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/rotate/</loc>
+	<lastmod>2020-12-22T08:42:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/split-1/</loc>
+	<lastmod>2020-12-22T08:42:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/rules/</loc>
+	<lastmod>2020-12-22T08:42:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/policy/</loc>
+	<lastmod>2020-12-22T08:42:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://pdf4you.ru/faq/</loc>
+	<lastmod>2020-12-22T08:42:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+</urlset>
