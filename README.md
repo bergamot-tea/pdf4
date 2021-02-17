@@ -1,7 +1,6 @@
 
 # https://pdf4you.ru/
-
-Django-проект(Python).
+# Django-проект(Python)
 
 Инструменты для работы с файлами PDF (мой первый проект).
 
